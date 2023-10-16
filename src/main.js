@@ -1,3 +1,7 @@
-// import './lab01';
-// import './lab02';
-// import './lab03';
+import { render } from './mini';
+// import App from './lab01';
+// import App from './lab02';
+import App from './lab03';
+
+const container = document.getElementById('app');
+render(App(), container);

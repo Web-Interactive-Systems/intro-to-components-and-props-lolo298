@@ -1,3 +1,4 @@
+import { createElement } from './mini';
 /**
  
 Another interesting feature of jsx it that component are just functions.
@@ -30,21 +31,36 @@ const todos = [
   },
 ];
 
-function TodoItem() {
+function TodoItem({ todo }) {
   // returns an html li item with its name and status
+  const { name, status } = todo;
 
-  return <></>;
+  return (
+    <li>
+      {name}, <span>{status}</span>
+    </li>
+  );
 }
 
-function TodoList() {
-  return <ul>{/* a list of TodoItem */}</ul>;
+function TodoList({ list }) {
+  return (
+    <ul>
+      {list.map((todo) => (
+        <TodoItem
+          todo={todo}
+          key={todo.id}
+        />
+      ))}
+    </ul>
+  );
 }
 
 /** @jsx createElement */
-function App() {
+export default function App() {
   const body = (
     <main>
       <h1>Hello List</h1>
+      <TodoList list={todos} />
     </main>
   );
 

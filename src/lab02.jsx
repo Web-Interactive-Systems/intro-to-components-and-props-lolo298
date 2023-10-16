@@ -1,3 +1,4 @@
+import { createElement } from './mini';
 /**
  Another interesting feature of jsx it that we can render data using js APIs.
 
@@ -18,12 +19,16 @@
  */
 
 /** @jsx createElement */
-function App() {
-  const list = [];
+export default function App() {
+  const list = ['item 1', 'item 2', 'item 3', 'item 4', 'item 5'];
 
   const body = (
     <main>
-      <h1>Hello List</h1>
+      <ul>
+        {list.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
     </main>
   );
 

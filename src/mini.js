@@ -17,12 +17,12 @@ let _root = null;
 
 export function reconcile(Component, root) {
   const type = Component.type;
-
+  console.log('reconcile', Component);
   if (Array.isArray(Component)) {
     return Component.map((child) => reconcile(child, root));
   }
 
-  const Comp = typeof type === 'string' ? Component : type();
+  const Comp = typeof type === 'string' ? Component : type(Component.props);
 
   if (Comp.props && Comp.props.children) {
     Comp.props.children.forEach((child, idChild) => {

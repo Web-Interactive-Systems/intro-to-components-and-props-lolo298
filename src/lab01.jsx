@@ -1,3 +1,4 @@
+import { createElement } from './mini';
 /**
  As mentioned earlier, jsx is a file extension introduced by react. 
  It allows us to combine html, js and css declaratively.
@@ -19,10 +20,16 @@
  */
 
 /** @jsx createElement */
-function App() {
+export default function App() {
+  const nom = 'Xela';
+  const prenom = 'Alex';
+
   const body = (
     <main>
-      <h1>Hello, here!</h1>
+      <h1>Hello, World!</h1>
+      <p>
+        My name is {prenom} {nom}
+      </p>
     </main>
   );
 
